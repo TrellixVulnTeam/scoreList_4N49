@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询</title>
+</head>
+<body>
+<form method="post" action="{% url 'score:search' %}">
+    <h3>
+        输入要查询的名次范围：<input type="text" id="score" name="start" > 到 <input type="text" id="score1" name="end" >
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button class="ui fluid large teal button" type="submit">查询</button>
+    </h3>
+</form>
+&nbsp;&nbsp;
+{#<a href="{% url 'demo1:show' %}"><input name="" type="button" value="查询"/></a>#}
+&nbsp;&nbsp;
+<a href="/logout/"><input name="" type="button" value="退出"/></a>
+<div>
+    <table border="1" style="text-align: center">
+        <tr >
+            <td colspan="1" style="width: 30%">排名</td>
+            <td colspan="1" style="width: 30%">客户端</td>
+            <td colspan="1" style="width: 30%">分数</td>
+        </tr>
+        <script>
+            var a = $("#score1").val()
+        </script>
+        {% for x in content %}
+            <tr >
+                <td colspan="1" style="width: 30%">{{ x.ranking }}</td>
+                <td colspan="1" style="width: 30%">{{ x.client }}</td>
+                <td colspan="1" style="width: 30%">{{ x.score }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="1" style="width: 30%">{{ your_score.ranking }}</td>
+            <td colspan="1" style="width: 30%">{{ user }}</td>
+            <td colspan="1" style="width: 30%">{{ your_score.score }}</td>
+        </tr>
+
+    </table>
+</div>
+
+</body>
+</html>

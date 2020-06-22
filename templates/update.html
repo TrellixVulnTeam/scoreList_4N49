@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传</title>
+</head>
+<body>
+<form method="post" action="{% url 'score:update' %}">
+    <h3>
+        当前客户端 {{ user }}，请上传分数：<input type="text" id="score" name="score" placeholder="可输入范围：1~10000000。"> 分。
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button class="ui fluid large teal button" type="submit">上传</button>
+    </h3>
+</form>
+&nbsp;&nbsp;
+<a href="{% url 'score:search' %}"><input name="" type="button" value="查询"/></a>
+&nbsp;&nbsp;
+<a href="/logout/"><input name="" type="button" value="退出"/></a>
+
+</body>
+</html>
